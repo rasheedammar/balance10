@@ -3,7 +3,7 @@ const createTableRow = (account) => {
     tableRow.innerHTML = `
       <td>${account.name}</td>
       <td>$${account.balance}</td>
-      <td class="${account.percentageColor}">${account.percentage}%</td>
+      <td class="${account.percentage >= 0 ? 'positive-percentage' : 'negative-percentage'}">${account.percentage}</td>
       <td><button onclick="closeAllPositions(${account.id})">Close All Positions</button></td>
     `;
     return tableRow;
@@ -34,5 +34,6 @@ const createTableRow = (account) => {
     });
   
   function closeAllPositions(accountId) {
-    console.log(`Closing all positions for
+    console.log(`Closing all positions for account with ID: ${accountId}`);
+  }
   
