@@ -1,54 +1,38 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balance Data</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .negative-percentage {
-      color: red;
-    }
-
-    .positive-percentage {
-      color: green;
-    }
-  </style>
+    <title>Balance App</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
-  <h1>Account Balances</h1>
-  <h2>API 1</h2>
-  <table>
-    <tr>
-      <th>Account Name</th>
-      <th>Balance</th>
-      <th>Percentage</th>
-      <th>Action</th>
-    </tr>
-    <tbody id="api1-table"></tbody>
-  </table>
+  <div id="accounts-list">
+    <!-- The account rows will be added dynamically here -->
+</div>
+    <script src="/client.js"></script>
+    <script src="shared.js"></script> <!-- Include shared.js -->
 
-  <h2>API 2</h2>
-  <table>
-    <tr>
-      <th>Account Name</th>
-      <th>Balance</th>
-      <th>Percentage</th>
-      <th>Action</th>
-    </tr>
-    <tbody id="api2-table"></tbody>
-  </table>
 
-  <script src="client.js"></script>
+    <h1>Account Balances</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Account ID</th>
+          <th>Account Name</th>
+          <th>Balance</th>
+          <th>Capital</th>
+          <th>Bots</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="api1-table">
+          <!-- Account data for API1 will be inserted here dynamically -->
+      </tbody>
+      <tbody id="api2-table">
+          <!-- Account data for API2 will be inserted here dynamically -->
+      </tbody>
+    </table>
+    
 </body>
 </html>
