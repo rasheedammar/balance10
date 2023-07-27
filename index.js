@@ -33,7 +33,7 @@ const capitalMap = new Map([
 
   [32427154,{ title: 'G124', capital: 2000, bots: ['botId1', 'botId2'] }],    
 
-  [32427159, { title: 'G125',capital: 145, bots: ['botId1', 'botId2'] }],    
+  [32427159, { title: 'G125',capital: 157, bots: ['botId1', 'botId2'] }],    
 
   [32428979, { title: 'G66',capital: 2000, bots: ['botId1', 'botId2'] }],    
 
