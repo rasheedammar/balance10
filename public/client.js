@@ -28,12 +28,34 @@ const createTableRow = (account) => {
   return tableRow;
 };
 
-// Fetch the account data from the server
-fetch('/data')
-  .then((response) => response.json())
-  .then((data) => {
-    // ... Your existing code to handle the received data and create account rows
-  })
-  .catch((error) => {
+const fetchData = async () => {
+  try {
+    const response = await fetch('/data');
+    const data = await response.json();
+
+    const api1Table = document.getElementById('api1-table');
+    const api2Table = document.getElementById('api2-table');
+
+    if (data !== null) {
+      api1Table.innerHTML = '';
+      api2Table.innerHTML = '';
+
+      data.api1.forEach((account) => {
+        const row = createTableRow(account);
+        api1Table.appendChild(row);
+      });
+
+      data.api2.forEach((account) => {
+        const row = createTableRow(account);
+        api2Table.appendChild(row);
+      });
+    } else {
+      console.error('Account data is null or empty.');
+    }
+  } catch (error) {
     console.error('Error fetching account data:', error);
-  });
+  }
+};
+
+// Call the fetchData function when the page loads
+fetchData();

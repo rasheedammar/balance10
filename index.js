@@ -117,38 +117,7 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   }
 });
 
-const stopAllBots = async (accountId) => {
-  try {
-    const api1Ids = [32101201, 31876293, 32103676, 32178454, 32427154, 32427107, 32428979, 32433201, 32427159, 31814867];
-    const api2Ids = [32208556, 32268993, 32423648, 32244363, 32244371, 32423630, 32435532];
 
-    if (api1Ids.includes(accountId)) {
-      // Implement the logic to stop all bots for the given account ID using API 1
-      // ... (Your logic to stop bots using API 1 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + accountId };
-    } else if (api2Ids.includes(accountId)) {
-      // Implement the logic to stop all bots for the given account ID using API 2
-      // ... (Your logic to stop bots using API 2 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + accountId };
-    } else {
-      throw new Error('Invalid account ID');
-    }
-  } catch (error) {
-    console.error('Error stopping bots:', error);
-    throw new Error('Error stopping bots for account ID: ' + accountId);
-  }
-};
-
-app.post('/stop-all-bots', async (req, res) => {
-  try {
-    const { accountId } = req.body;
-    const result = await stopAllBots(accountId);
-    res.json(result);
-  } catch (error) {
-    console.error('Error stopping bots:', error);
-    res.status(500).json({ error: 'Error stopping bots' });
-  }
-});
 
 
 app.listen(port, () => {
