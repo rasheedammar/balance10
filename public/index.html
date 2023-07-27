@@ -1,38 +1,33 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Balance App</title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div id="accounts-list">
-    <!-- The account rows will be added dynamically here -->
-</div>
-    <script src="/client.js"></script>
-    <script src="shared.js"></script> <!-- Include shared.js -->
-
-
     <h1>Account Balances</h1>
     <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Account ID</th>
-          <th>Account Name</th>
-          <th>Balance</th>
-          <th>Capital</th>
-          <th>Bots</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="api1-table">
-          <!-- Account data for API1 will be inserted here dynamically -->
-      </tbody>
-      <tbody id="api2-table">
-          <!-- Account data for API2 will be inserted here dynamically -->
-      </tbody>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Account ID</th>
+                <th>Account Name</th>
+                <th>Balance</th>
+                <th>Capital</th>
+                <th>Actions</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody id="api1-table">
+            <!-- The account rows for API1 will be inserted here dynamically -->
+        </tbody>
+   
+        <tbody id="api2-table">
+            <!-- The account rows for API2 will be inserted here dynamically -->
+        </tbody>
     </table>
-    
+    <script src="/client.js"></script>
+
+   
 </body>
 </html>

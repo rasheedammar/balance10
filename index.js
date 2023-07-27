@@ -2,6 +2,7 @@ const threeCommasAPI = require('3commas-api-node');
 const express = require('express');
 const path = require('path');
 
+
 const api1 = new threeCommasAPI({
     apiKey: '35c1fd4032924b3aad132a6d135294f8192816f541da44039dcea439f3e6cce3',
     apiSecret: '25d7622eb5df82eace388295ab8872cdd6b6ea89dfb66bd31dde8ae26cd904c9f32511bdb166baa5b3ac8ddfb181d79e838636ec6baf929a454ad1e96d67e5ffa8d98091d9d51b044122c43638ea0a473688e48832d3a28ba81777bf965a23c5d37b1825',
@@ -117,38 +118,30 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   }
 });
 
-const stopAllBots = async (accountId) => {
+const stopAllBots = async (botIds) => {
   try {
     const api1Ids = [32101201, 31876293, 32103676, 32178454, 32427154, 32427107, 32428979, 32433201, 32427159, 31814867];
     const api2Ids = [32208556, 32268993, 32423648, 32244363, 32244371, 32423630, 32435532];
+    const api1Bots = botIds.filter((botId) => api1Ids.includes(botId));
+    const api2Bots = botIds.filter((botId) => api2Ids.includes(botId));
 
-    if (api1Ids.includes(accountId)) {
+    if (api1Bots.length > 0) {
       // Implement the logic to stop all bots for the given account ID using API 1
       // ... (Your logic to stop bots using API 1 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + accountId };
-    } else if (api2Ids.includes(accountId)) {
+      return { success: true, message: 'All bots stopped successfully for account ID: ' + botIds };
+    } else if (api2Bots.length > 0) {
       // Implement the logic to stop all bots for the given account ID using API 2
       // ... (Your logic to stop bots using API 2 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + accountId };
+      return { success: true, message: 'All bots stopped successfully for account ID: ' + botIds };
     } else {
-      throw new Error('Invalid account ID');
+      throw new Error('Invalid bot ID');
     }
+    
   } catch (error) {
     console.error('Error stopping bots:', error);
-    throw new Error('Error stopping bots for account ID: ' + accountId);
+    throw new Error('Error stopping bots for account ID: ' + botIds);
   }
 };
-
-app.post('/stop-all-bots', async (req, res) => {
-  try {
-    const { accountId } = req.body;
-    const result = await stopAllBots(accountId);
-    res.json(result);
-  } catch (error) {
-    console.error('Error stopping bots:', error);
-    res.status(500).json({ error: 'Error stopping bots' });
-  }
-});
 
 
 app.listen(port, () => {
