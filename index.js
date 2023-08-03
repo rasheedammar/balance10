@@ -20,51 +20,20 @@ const publicDirectoryPath = path.join(__dirname, 'public');
 app.use(express.static(publicDirectoryPath));
 
 const capitalMap = new Map([
-  [32101201, { title: 'G9', capital: 500, bots: ['11454883', '11454884'] }],
+  [ 32260429,{title: 'G30',capital: 100, bots: ['botId1', 'botId2'] }],  
 
-  [31876293, { title: 'G11', capital: 1000, bots: ['botId1', 'botId2'] }],
-
-  [31814867, { title: 'G13', capital: 1000, bots: ['botId1', 'botId2'] }],
-
-  [32103676, {title: 'G14', capital: 2000, bots: ['botId1', 'botId2'] }],    
-
-  [32178454, { title: 'G24',capital: 1000, bots: ['botId1', 'botId2'] }],    
-
-  [32427107 ,{ title: 'G122',capital: 4000, bots: ['botId1', 'botId2'] }],    
-
-  [32427154,{ title: 'G124', capital: 2000, bots: ['botId1', 'botId2'] }],    
-
-  [32427159, { title: 'G125',capital: 157, bots: ['botId1', 'botId2'] }],    
-
-  [32428979, { title: 'G66',capital: 2000, bots: ['botId1', 'botId2'] }],    
-
-  [32433201 ,{ title: 'G67',capital: 346, bots: ['botId1', 'botId2'] }],    
-
-  [32208556 ,{ title: 'G27',capital: 500, bots: ['botId1', 'botId2'] }],    
-
-  [32268993 ,{title:  'G112',capital: 500, bots: ['botId1', 'botId2'] }],    
-
-  [32423648, { title: '103',capital: 3000, bots: ['botId1', 'botId2'] }],    
-
-  [32244363, { title: 'G117',capital: 3000, bots: ['botId1', 'botId2'] }],    
-
-  [32244371, { title: 'G118',capital: 2000, bots: ['botId1', 'botId2'] }],    
-
-  [32423630 ,{title: 'G98',capital: 427, bots: ['botId1', 'botId2'] }],    
-
-  [ 32435532,{title: 'G72',capital: 2000, bots: ['botId1', 'botId2'] }],    
+  [ 32152427,{title: 'G22',capital: 100, bots: ['botId1', 'botId2'] }],  
+    
 
 ]);
 
 app.get('/data', async (req, res) => {
   try {
     const api1Ids = [
-      32101201, 31876293, 32103676, 32178454, 32427154,
-      32427107, 32428979, 32433201, 32427159, 31814867,
+    32152427,
     ];
     const api2Ids = [
-      32208556, 32268993, 32423648, 32244363, 32244371,
-      32423630, 32435532,
+      32260429,
     ];
 
     // ... (Your existing code)
@@ -74,7 +43,7 @@ const api1Results = await Promise.all(api1Ids.map(async (id) => {
   const capitalInfo = capitalMap.get(id);
   const balance = Math.floor(account?.primary_display_currency_amount?.amount) || 0;
   const capital = capitalInfo?.capital || 0;
-  const percentage = ((balance - capital) / capital * 100).toFixed(1);
+  const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
     id,
@@ -91,7 +60,7 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   const capitalInfo = capitalMap.get(id);
   const balance = Math.floor(account?.primary_display_currency_amount?.amount) || 0;
   const capital = capitalInfo?.capital || 0;
-  const percentage = ((balance - capital) / capital * 100).toFixed(1);
+  const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
     id,
@@ -120,8 +89,15 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
 
 const stopAllBots = async (botIds) => {
   try {
-    const api1Ids = [32101201, 31876293, 32103676, 32178454, 32427154, 32427107, 32428979, 32433201, 32427159, 31814867];
-    const api2Ids = [32208556, 32268993, 32423648, 32244363, 32244371, 32423630, 32435532];
+   
+    const api1Ids = [
+      32152427,
+      ];
+      const api2Ids = [
+        32260429,
+      ];
+  
+
     const api1Bots = botIds.filter((botId) => api1Ids.includes(botId));
     const api2Bots = botIds.filter((botId) => api2Ids.includes(botId));
 

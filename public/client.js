@@ -5,7 +5,7 @@ const createAccountRow = (accountId, accountData) => {
       <td>${accountData.title}</td>
       <td>${accountId}</td>
       <td>${accountData.name}</td>
-      <td>$${accountData.balance}</td>
+      <td>$${(accountData.balance/5)}</td>
       <td>$${accountData.capital}</td>
       <td>${accountData.bots.join(', ')}</td>
       <td>${accountData.percentage}%</td>
