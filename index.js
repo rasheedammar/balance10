@@ -46,11 +46,8 @@ const api1Results = await Promise.all(api1Ids.map(async (id) => {
   const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
-    id,
-    name: account?.name,
     balance,
     capital,
-    bots: capitalInfo?.bots || [],
     percentage,
   };
 }));
@@ -63,11 +60,8 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
-    id,
-    name: account?.name,
     balance,
     capital,
-    bots: capitalInfo?.bots || [],
     percentage,
   };
 }));
@@ -86,38 +80,6 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
     res.status(500).json({ error: 'Error fetching balances from APIs' });
   }
 });
-
-const stopAllBots = async (botIds) => {
-  try {
-   
-    const api1Ids = [
-      32152427,
-      ];
-      const api2Ids = [
-        32260429,
-      ];
-  
-
-    const api1Bots = botIds.filter((botId) => api1Ids.includes(botId));
-    const api2Bots = botIds.filter((botId) => api2Ids.includes(botId));
-
-    if (api1Bots.length > 0) {
-      // Implement the logic to stop all bots for the given account ID using API 1
-      // ... (Your logic to stop bots using API 1 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + botIds };
-    } else if (api2Bots.length > 0) {
-      // Implement the logic to stop all bots for the given account ID using API 2
-      // ... (Your logic to stop bots using API 2 goes here)
-      return { success: true, message: 'All bots stopped successfully for account ID: ' + botIds };
-    } else {
-      throw new Error('Invalid bot ID');
-    }
-    
-  } catch (error) {
-    console.error('Error stopping bots:', error);
-    throw new Error('Error stopping bots for account ID: ' + botIds);
-  }
-};
 
 
 

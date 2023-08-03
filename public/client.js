@@ -1,28 +1,23 @@
 // Function to create an account row with a stop bot button
-const createAccountRow = (accountId, accountData) => {
+const createAccountRow = (accountData) => {
   const tableRow = document.createElement('tr');
   tableRow.innerHTML = `
       <td>${accountData.title}</td>
-      <td>${accountId}</td>
-      <td>${accountData.name}</td>
-      <td>$${(accountData.balance/5)}</td>
+      <td>$${(accountData.balance / 5)}</td>
       <td>$${accountData.capital}</td>
-      <td>${accountData.bots.join(', ')}</td>
       <td>${accountData.percentage}%</td>
-      <td>
-          <button onclick="closeAllPositions(${accountId})">Close All Positions</button>
-          <button onclick="stopAllBots(${accountId})">Stop Bots</button>
-      </td>
   `;
 
-  // Apply percentage color based on the percentage value
-  const percentageCell = tableRow.querySelector('td:nth-child(7)');
-  const percentage = parseFloat(accountData.percentage);
-  if (!isNaN(percentage)) {
-    if (percentage < 0) {
-      percentageCell.style.color = 'red';
-    } else {
-      percentageCell.style.color = 'green';
+  // Ensure the table row has at least 4 <td> elements
+  if (tableRow.childElementCount >= 4) {
+    const percentageCell = tableRow.querySelector('td:nth-child(4)');
+    const percentage = parseFloat(accountData.percentage);
+    if (!isNaN(percentage)) {
+      if (percentage < 0) {
+        percentageCell.style.color = 'red';
+      } else {
+        percentageCell.style.color = 'green';
+      }
     }
   }
 
@@ -37,19 +32,18 @@ fetch('/data')
     const api2Table = document.getElementById('api2-table');
 
     if (data !== null) {
-
       api1Table.innerHTML = '';
       api2Table.innerHTML = '';
       
       // Iterate over the account data and create the table rows for API1
       data.api1.forEach((account) => {
-        const row = createAccountRow(account.id, account);
+        const row = createAccountRow(account);
         api1Table.appendChild(row);
       });
 
       // Iterate over the account data and create the table rows for API2
       data.api2.forEach((account) => {
-        const row = createAccountRow(account.id, account);
+        const row = createAccountRow(account);
         api2Table.appendChild(row);
       });
     } else {
