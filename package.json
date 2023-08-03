@@ -7,11 +7,10 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "3commas-api-node": "^2.1.0" 
+    "3commas-api-node": "^1.2.0",
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "14.x"
   }
-  
 }

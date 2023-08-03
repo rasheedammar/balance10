@@ -34,11 +34,11 @@ const capitalMap = new Map([
 
   [32427154,{ title: 'G124', capital: 2000, bots: ['botId1', 'botId2'] }],    
 
-  [32427159, { title: 'G125',capital: 145, bots: ['botId1', 'botId2'] }],    
+  [32427159, { title: 'G125',capital: 157, bots: ['botId1', 'botId2'] }],    
 
   [32428979, { title: 'G66',capital: 2000, bots: ['botId1', 'botId2'] }],    
 
-  [32433201 ,{ title: 'G67',capital: 152, bots: ['botId1', 'botId2'] }],    
+  [32433201 ,{ title: 'G67',capital: 346, bots: ['botId1', 'botId2'] }],    
 
   [32208556 ,{ title: 'G27',capital: 500, bots: ['botId1', 'botId2'] }],    
 
