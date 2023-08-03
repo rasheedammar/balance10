@@ -118,7 +118,6 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   }
 });
 
-<<<<<<< HEAD
 const stopAllBots = async (botIds) => {
   try {
     const api1Ids = [32101201, 31876293, 32103676, 32178454, 32427154, 32427107, 32428979, 32433201, 32427159, 31814867];
@@ -144,10 +143,8 @@ const stopAllBots = async (botIds) => {
   }
 };
 
-=======
 
 
->>>>>>> 16eac168b742fbce1c948ef1054b2604ce820723
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
