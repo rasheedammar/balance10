@@ -20,20 +20,25 @@ const publicDirectoryPath = path.join(__dirname, 'public');
 app.use(express.static(publicDirectoryPath));
 
 const capitalMap = new Map([
-  [ 32260429,{title: 'G30',capital: 100, bots: ['botId1', 'botId2'] }],  
+  [ 32260429,{title: 'G30',capital: 100, bots: ['botId1', 'botId2'] }],
+
+  [ 32244961,{title: 'G54 Fast',capital: 100, bots: ['botId1', 'botId2'] }],
 
   [ 32152427,{title: 'G22',capital: 100, bots: ['botId1', 'botId2'] }],  
-    
+  [ 32101635,{title: 'G16 Fast',capital: 100, bots: ['botId1', 'botId2'] }],  
+
+
+  
 
 ]);
 
 app.get('/data', async (req, res) => {
   try {
     const api1Ids = [
-    32152427,
+    32152427,32101635,
     ];
     const api2Ids = [
-      32260429,
+      32260429,32244961,
     ];
 
     // ... (Your existing code)
