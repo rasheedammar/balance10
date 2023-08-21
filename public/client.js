@@ -2,15 +2,16 @@
 const createAccountRow = (accountData) => {
   const tableRow = document.createElement('tr');
   tableRow.innerHTML = `
-      <td>${accountData.title}</td>
-      <td>$${(accountData.balance / 5)}</td>
+      <td>${accountData.Strategy}</td>
       <td>$${accountData.capital}</td>
+      <td>$${(accountData.balance / 5)}</td>
+      <td>${accountData.title}</td>
       <td>${accountData.percentage}%</td>
   `;
 
   // Ensure the table row has at least 4 <td> elements
-  if (tableRow.childElementCount >= 4) {
-    const percentageCell = tableRow.querySelector('td:nth-child(4)');
+  if (tableRow.childElementCount >= 5) {
+    const percentageCell = tableRow.querySelector('td:nth-child(5)');
     const percentage = parseFloat(accountData.percentage);
     if (!isNaN(percentage)) {
       if (percentage < 0) {

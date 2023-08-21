@@ -20,12 +20,13 @@ const publicDirectoryPath = path.join(__dirname, 'public');
 app.use(express.static(publicDirectoryPath));
 
 const capitalMap = new Map([
-  [ 32260429,{title: 'G30',capital: 100, bots: ['botId1', 'botId2'] }],
+  [ 32260429,{title: 'G30 ',Strategy:'Dca (3Enter 1% TP)',capital: 100, bots: ['botId1', 'botId2'] }],
 
-  [ 32244961,{title: 'G54 Fast',capital: 100, bots: ['botId1', 'botId2'] }],
+  [ 32152427,{title: 'G22',Strategy:'Dca (3Enter 1% TP)',capital: 100, bots: ['botId1', 'botId2'] }],  
 
-  [ 32152427,{title: 'G22',capital: 100, bots: ['botId1', 'botId2'] }],  
-  [ 32101635,{title: 'G16 Fast',capital: 100, bots: ['botId1', 'botId2'] }],  
+  [ 32244961,{title: 'G56 ',Strategy:'Fast (1Enter 0.58% TP)',capital: 100, bots: ['botId1', 'botId2'] }],
+
+  [ 32101635,{title: 'G16' ,Strategy:'Fast (1Enter 0.58% TP)',capital: 100, bots: ['botId1', 'botId2'] }],  
 
 
   
@@ -51,6 +52,7 @@ const api1Results = await Promise.all(api1Ids.map(async (id) => {
   const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
+    Strategy: capitalInfo?.Strategy || '',
     balance,
     capital,
     percentage,
@@ -65,6 +67,7 @@ const api2Results = await Promise.all(api2Ids.map(async (id) => {
   const percentage = (((balance/5) - capital) / capital * 100).toFixed(1);
   return {
     title: capitalInfo?.title || '',
+    Strategy: capitalInfo?.Strategy || '',
     balance,
     capital,
     percentage,
