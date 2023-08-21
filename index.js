@@ -22,9 +22,10 @@ app.use(express.static(publicDirectoryPath));
 const capitalMap = new Map([
   [ 32260429,{title: 'G30',capital: 100, bots: ['botId1', 'botId2'] }],
 
-  [ 32244961,{title: 'G54 Fast',capital: 100, bots: ['botId1', 'botId2'] }],
-
   [ 32152427,{title: 'G22',capital: 100, bots: ['botId1', 'botId2'] }],  
+
+  [ 32244961,{title: 'G56 Fast',capital: 100, bots: ['botId1', 'botId2'] }],
+
   [ 32101635,{title: 'G16 Fast',capital: 100, bots: ['botId1', 'botId2'] }],  
 
 
